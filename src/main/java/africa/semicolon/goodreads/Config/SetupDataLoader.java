@@ -1,7 +1,7 @@
 package africa.semicolon.goodreads.Config;
 
-import africa.semicolon.goodreads.Repositories.UserRepository.UserRepository;
-import africa.semicolon.goodreads.models.RoleType;
+import africa.semicolon.goodreads.Repositories.UserRepository;
+import africa.semicolon.goodreads.models.Enum.RoleType;
 import africa.semicolon.goodreads.models.User;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

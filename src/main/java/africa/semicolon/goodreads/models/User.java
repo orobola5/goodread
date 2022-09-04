@@ -2,6 +2,7 @@ package africa.semicolon.goodreads.models;
 
 import africa.semicolon.goodreads.models.Enum.AccountStatus;
 import africa.semicolon.goodreads.models.Enum.Gender;
+import africa.semicolon.goodreads.models.Enum.RoleType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

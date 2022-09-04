@@ -1,4 +1,4 @@
-package africa.semicolon.goodreads.models;
+package africa.semicolon.goodreads.dtos.Request;
 
 import africa.semicolon.goodreads.models.Enum.AgeRate;
 import africa.semicolon.goodreads.models.Enum.Category;
@@ -8,43 +8,43 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.validation.annotation.Validated;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-@Entity
-@Builder
-@NoArgsConstructor
+
 @AllArgsConstructor
-@Data
-public class Book {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
-
+@NoArgsConstructor
+@Getter
+@Setter
+@Validated
+public class BookItemUploadRequest {
+    @NotNull
+    @NotBlank
     private String title;
+    @NotNull @NotBlank
     private String author;
-
+    @NotNull @NotBlank
     private String description;
-
+    @NotNull @NotBlank
     private String coverImageFileName;
-
+    @NotNull @NotBlank
     private String fileName;
-
+    @NotNull
     private AgeRate ageRate;
 
+    @NotNull @NotBlank
     private String uploadedBy;
 
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @NotNull
     private LocalDate dateUploaded;
-
+    @NotNull
     private Category category;
 }
-

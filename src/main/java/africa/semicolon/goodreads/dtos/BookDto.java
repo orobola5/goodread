@@ -1,4 +1,4 @@
-package africa.semicolon.goodreads.models;
+package africa.semicolon.goodreads.dtos;
 
 import africa.semicolon.goodreads.models.Enum.AgeRate;
 import africa.semicolon.goodreads.models.Enum.Category;
@@ -7,24 +7,18 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.hateoas.RepresentationModel;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.io.Serializable;
 import java.time.LocalDate;
-@Entity
+
+@Getter
+@Setter
+@AllArgsConstructor
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor
-@Data
-public class Book {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class BookDto extends RepresentationModel<BookDto> implements Serializable {
     private String id;
 
     private String title;
@@ -39,7 +33,6 @@ public class Book {
     private AgeRate ageRate;
 
     private String uploadedBy;
-
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
@@ -47,4 +40,3 @@ public class Book {
 
     private Category category;
 }
-

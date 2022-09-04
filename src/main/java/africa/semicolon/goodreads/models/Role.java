@@ -1,5 +1,6 @@
 package africa.semicolon.goodreads.models;
 
+import africa.semicolon.goodreads.models.Enum.RoleType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
